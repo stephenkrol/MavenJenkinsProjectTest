@@ -20,6 +20,7 @@ pipeline {
             steps {
                 timeout(time: 3, unit: 'MINUTES') {
                     retry(5) {
+                        sh 'chmod +x -R ${env.WORKSPACE}''
                         sh './fake-deploy.sh'
                     }
                 }
